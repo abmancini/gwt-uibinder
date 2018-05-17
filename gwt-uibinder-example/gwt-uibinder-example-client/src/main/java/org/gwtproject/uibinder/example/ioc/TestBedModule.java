@@ -16,12 +16,16 @@
 package org.gwtproject.uibinder.example.ioc;
 
 import org.gwtproject.uibinder.example.NavigationRepository.Token;
+import org.gwtproject.uibinder.example.tutorial.Sample1View_ORIG;
+import org.gwtproject.uibinder.example.tutorial.impl.Sample1ViewImpl_ORIG;
 import org.gwtproject.uibinder.example.view.HomeView;
 import org.gwtproject.uibinder.example.view.OldVsNewComparisonView;
+import org.gwtproject.uibinder.example.tutorial.Sample1View;
 import org.gwtproject.uibinder.example.view.Shell;
 import org.gwtproject.uibinder.example.view.SupplementalView;
 import org.gwtproject.uibinder.example.view.UiChildTestView;
 import org.gwtproject.uibinder.example.view.impl.HomeViewImpl;
+import org.gwtproject.uibinder.example.tutorial.impl.Sample1ViewImpl;
 import org.gwtproject.uibinder.example.view.impl.ShellImpl;
 import org.gwtproject.uibinder.example.view.impl.SupplementalViewImpl;
 import org.gwtproject.uibinder.example.view.impl.UiChildTestViewImpl;
@@ -52,7 +56,10 @@ public abstract class TestBedModule {
       Provider<HomeView> homeViewProvider,
       Provider<OldVsNewComparisonView> oldVsNewComparisonViewProvider,
       Provider<UiChildTestView> uiChildTestViewProvider,
-      Provider<SupplementalView> supplementalViewProvider) {
+      Provider<SupplementalView> supplementalViewProvider
+          ,Provider<Sample1View> sample1Provider
+          ,Provider<Sample1View_ORIG> sample1oProvider
+  ) {
     Map<Token, Provider<? extends IsWidget>> navMap = new LinkedHashMap<>();
 
     navMap.put(Token.DEFAULT, homeViewProvider);
@@ -60,6 +67,9 @@ public abstract class TestBedModule {
         oldVsNewComparisonViewProvider);
     navMap.put(Token.create("uichild", "UiChild Test"), uiChildTestViewProvider);
     navMap.put(Token.create("supplemental", "Supplemental View"), supplementalViewProvider);
+
+    navMap.put(Token.create("tutSample1", "Tutorial Sample 1"), sample1Provider);
+    navMap.put(Token.create("tutSample1o", "Original Tutorial Sample 1"), sample1oProvider);
 
     return navMap;
   }
@@ -75,4 +85,11 @@ public abstract class TestBedModule {
 
   @Binds
   abstract SupplementalView supplementalView(SupplementalViewImpl impl);
+
+  @Binds
+  abstract Sample1View sample1Provider(Sample1ViewImpl impl);
+
+  @Binds
+  abstract Sample1View_ORIG sample1oProvider(Sample1ViewImpl_ORIG impl);
+
 }

@@ -1,0 +1,7 @@
+<!-- HelloWorld.ui.xml -->
+
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'>
+  <div>
+    Hello, <span ui:field='nameSpan'>...wait...</span>.
+  </div>
+</ui:UiBinder>
