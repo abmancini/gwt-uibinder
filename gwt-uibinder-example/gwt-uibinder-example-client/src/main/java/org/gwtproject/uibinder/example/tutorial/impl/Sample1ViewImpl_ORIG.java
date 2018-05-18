@@ -15,23 +15,24 @@
  */
 package org.gwtproject.uibinder.example.tutorial.impl;
 
-import javax.inject.Inject;
-
 import org.gwtproject.uibinder.example.tutorial.Sample1View_ORIG;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.DivElement;
-import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.SpanElement;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiField;
+
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.Widget;
+
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
 
 //import org.gwtproject.uibinder.client.UiBinder;
 //import org.gwtproject.uibinder.client.UiField;
 //import org.gwtproject.uibinder.client.UiTemplate;
-//import com.google.gwt.uibinder.client.UiTemplate;
+
+import javax.inject.Inject;
 
 /**
  *
